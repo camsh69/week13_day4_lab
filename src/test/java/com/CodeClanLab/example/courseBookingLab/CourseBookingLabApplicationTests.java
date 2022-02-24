@@ -47,4 +47,16 @@ class CourseBookingLabApplicationTests {
 		assertEquals(2, found.size());
 	}
 
+	@Test
+	public void canFindAllCustomersForCourse() {
+		List<Customer> found = customerRepository.findByBookingsCourseName("Java");
+		assertEquals(2, found.size());
+	}
+
+	@Test
+	public void canFindAllCoursesForCustomers() {
+		List<Course> found = courseRepository.findByBookingsCustomerName("Joe Bloggs");
+		assertEquals(2, found.size());
+	}
+
 }
