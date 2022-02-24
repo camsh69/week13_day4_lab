@@ -1,5 +1,6 @@
 package com.CodeClanLab.example.courseBookingLab.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -24,7 +25,8 @@ public class Customer {
     private int age;
 
     @OneToMany(mappedBy = "customer")
-    @JsonIgnoreProperties({"customers"})
+//    @JsonIgnoreProperties({"customers"})
+    @JsonBackReference
     private List<Booking> bookings;
 
     public Customer() {
