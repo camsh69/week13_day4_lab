@@ -59,4 +59,10 @@ class CourseBookingLabApplicationTests {
 		assertEquals(2, found.size());
 	}
 
+	@Test
+	public void canFindAllBookingsByDate() {
+		List<Booking> found = bookingRepository.findByDate("24 February 2022");
+		assertEquals(5, found.size());
+	}
+
 }
