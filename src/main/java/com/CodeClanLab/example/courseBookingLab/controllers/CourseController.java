@@ -1,4 +1,4 @@
-package com.CodeClanLab.example.coursecourseLab.controllers;
+package com.CodeClanLab.example.courseBookingLab.controllers;
 
 import com.CodeClanLab.example.courseBookingLab.models.Course;
 import com.CodeClanLab.example.courseBookingLab.repositories.CourseRepository;

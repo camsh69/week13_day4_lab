@@ -23,9 +23,12 @@ public class Course {
     @Column(name="rating")
     private int rating;
 
-    @JsonIgnoreProperties({"courses"})
+    @JsonIgnoreProperties({"course"})
     @OneToMany(mappedBy = "course")
     private List<Booking> bookings;
+
+    public Course() {
+    }
 
     public Course(String name, String town, int rating) {
         this.name = name;
