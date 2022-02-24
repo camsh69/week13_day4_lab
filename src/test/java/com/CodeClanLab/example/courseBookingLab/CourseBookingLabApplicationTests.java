@@ -67,14 +67,14 @@ class CourseBookingLabApplicationTests {
 
 	@Test
 	public void canFindCustomerInATownForGivenCourse() {
-		List<Customer> found = customerRepository.findByTownAndBookingsCourseName("Edinburgh" , "Java");
+		List<Customer> found = customerRepository.findByTownIgnoreCaseAndBookingsCourseName("Edinburgh" , "Java");
 		assertEquals("Joe Bloggs", found.get(0).getName());
 	}
 
 	@Test
 	public void canFindCustomerInATownForGivenCourseOverCertainAge() {
 		List<Customer> found = customerRepository
-				.findByAgeGreaterThanAndTownAndBookingsCourseName(20,"Glasgow" , "JavaScript");
+				.findByAgeGreaterThanAndTownIgnoreCaseAndBookingsCourseName(20,"glasgow" , "JavaScript");
 		assertEquals("Jane Bloggs", found.get(0).getName());
 	}
 
