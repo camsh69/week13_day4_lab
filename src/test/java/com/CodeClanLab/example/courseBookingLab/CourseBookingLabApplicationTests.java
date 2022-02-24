@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -37,6 +39,12 @@ class CourseBookingLabApplicationTests {
 		Booking booking = new Booking("24 February 2022", customer, course);
 		bookingRepository.save(booking);
 
+	}
+
+	@Test
+	public void canFindCourseByRating() {
+		List<Course> found = courseRepository.findByRating(4);
+		assertEquals(2, found.size());
 	}
 
 }
