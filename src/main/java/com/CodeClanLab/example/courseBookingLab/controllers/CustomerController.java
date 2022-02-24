@@ -19,7 +19,11 @@ public class CustomerController {
     public ResponseEntity<List<Customer>> getCustomers(
             @RequestParam(name="course", required = false) String course,
             @RequestParam(name="town", required = false) String town,
-            @RequestParam(name="courseName", required = false) String  courseName) {
+            @RequestParam(name="courseName", required = false) String  courseName,
+            @RequestParam(name="age", required = false) Integer age) {
+        if (town != null && courseName != null && age != null) {
+            return new ResponseEntity<>(customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseName(age, town, courseName), HttpStatus.OK);
+        }
         if (course != null) {
             return new ResponseEntity<>(customerRepository.findByBookingsCourseName(course), HttpStatus.OK);
         }

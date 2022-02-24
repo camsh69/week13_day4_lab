@@ -71,4 +71,11 @@ class CourseBookingLabApplicationTests {
 		assertEquals("Joe Bloggs", found.get(0).getName());
 	}
 
+	@Test
+	public void canFindCustomerInATownForGivenCourseOverCertainAge() {
+		List<Customer> found = customerRepository
+				.findByAgeGreaterThanAndTownAndBookingsCourseName(20,"Glasgow" , "JavaScript");
+		assertEquals("Jane Bloggs", found.get(0).getName());
+	}
+
 }
